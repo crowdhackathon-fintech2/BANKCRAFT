@@ -19,6 +19,7 @@ import eu.ptriantafyllopoulos.bankcraft.R;
 import eu.ptriantafyllopoulos.bankcraft.View.adapters.TransactionItemViewModel;
 import eu.ptriantafyllopoulos.bankcraft.View.adapters.TransactionsListViewAdapter;
 import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.UserTransactionsDAO;
+import eu.ptriantafyllopoulos.bankcraft.utils.RuntimeStorage;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,6 +69,7 @@ public class TransactionListFragment extends Fragment {
         if (getArguments() != null) {
             //getArguments().getParcelable(TRANSACTION_DAO);
         }
+        incomingDao = (UserTransactionsDAO) RuntimeStorage.getInstance().getObject(TRANSACTION_DAO);
         if(incomingDao!=null){
             transformDAOToViewModel(incomingDao);
         }

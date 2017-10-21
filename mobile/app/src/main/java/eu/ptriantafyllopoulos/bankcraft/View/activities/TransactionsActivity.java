@@ -18,7 +18,6 @@ public class TransactionsActivity extends BaseActivity  implements TransactionLi
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         TransactionListFragment fragment = TransactionListFragment.newInstance();
-        fragment.setIncomingDao(super.getUserTransactionsDAO());
         fragmentTransaction.add(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
     }

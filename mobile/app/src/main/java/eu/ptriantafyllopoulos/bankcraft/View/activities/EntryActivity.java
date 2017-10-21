@@ -20,6 +20,8 @@ import eu.ptriantafyllopoulos.bankcraft.View.loadingWidget.WaveDrawable;
 import eu.ptriantafyllopoulos.bankcraft.api.ServiceCalls;
 import eu.ptriantafyllopoulos.bankcraft.model.events.GetUserTransactionsResponseEvent;
 import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.UserTransactionsDAO;
+import eu.ptriantafyllopoulos.bankcraft.utils.RuntimeStorage;
+import eu.ptriantafyllopoulos.bankcraft.utils.RuntimeStorageKeys;
 
 public class EntryActivity extends BaseActivity {
 
@@ -111,7 +113,7 @@ public class EntryActivity extends BaseActivity {
     public void onGetUserTransactionsResponse(GetUserTransactionsResponseEvent responseEvent) {
         getAppLoader().dismissLoader(this);
         if(responseEvent.getTransactionsDAO() != null){
-            super.setUserTransactionsDAO(responseEvent.getTransactionsDAO());
+            RuntimeStorage.getInstance().put(RuntimeStorageKeys.TRANSACTION_DAO,responseEvent.getTransactionsDAO());
             startActivity(new Intent(this, TransactionsActivity.class));
 
         }else{
