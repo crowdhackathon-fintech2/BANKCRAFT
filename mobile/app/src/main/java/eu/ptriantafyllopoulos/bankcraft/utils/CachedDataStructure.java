@@ -24,6 +24,9 @@ public class CachedDataStructure {
         return objectHashMap;
     }
 
+    /**
+     * Function to clear global cache
+     **/
     public void clearCache(){
         varHashMap.clear();
         objectHashMap.clear();

@@ -5,5 +5,6 @@ package eu.ptriantafyllopoulos.bankcraft.utils;
  */
 
 public class RuntimeStorageKeys {
+    /* KEYS (TAGs) for save and retrieve from runtime cache */
     public static final String TRANSACTION_DAO = "TRANSACTION_DAO";
 }

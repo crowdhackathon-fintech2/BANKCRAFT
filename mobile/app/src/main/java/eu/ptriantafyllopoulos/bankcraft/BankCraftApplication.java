@@ -16,8 +16,12 @@ import okhttp3.logging.HttpLoggingInterceptor;
 
 public class BankCraftApplication extends Application {
 
+    /* Application Instance */
     private static BankCraftApplication instance;
+    /* Http Client Instance */
     private OkHttpClient okHttpClient;
+    /* Event Bus Instance */
+    @Deprecated
     private Bus eventBus;
 
     @Override
@@ -37,6 +41,10 @@ public class BankCraftApplication extends Application {
     }
 
 
+    /**
+     * Constructs The Http Client for Retrofit
+     * @return OkHttpClient
+     * */
     private OkHttpClient createOkHttpClient(){
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
