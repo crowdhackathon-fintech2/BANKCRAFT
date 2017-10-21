@@ -1,5 +1,6 @@
 var express = require('express');
 var config = require('../config');
+var path = require('path');
 
 exports.initialize = function () {
     // Initialize API
@@ -19,8 +20,11 @@ exports.initialize = function () {
 
 function setupRoutes(api) {
     // Index endpoint
-    api.get('/', require('./routes/index'));
-
+    // api.get('/', require('./routes/index'));
+    api.use("/", express.static(path.join(__dirname + '/../views/')));
+    api.get('/', function(req, res) {
+        res.sendFile(path.join(__dirname + '/../views/index.html'));
+    });
     // Send notifications endpoint
    api.get('/transactions/:id', require('./routes/transactions'));
     api.get('/transactions', require('./routes/transactions'));
