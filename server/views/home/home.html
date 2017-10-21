@@ -1,0 +1,26 @@
+<div class="row" style="margin-top: 10px;">
+    <div class="col-xs-6">
+        <div class="sidebar-wrapper">
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Latest transaction</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="row" ng-repeat="t in vm.trans">
+                            <div class="col-xs-6">
+                                <b>Description:</b> {{t.description}} <br>
+                                <b>Value:</b> {{t.amount.toFixed(2)}}
+                            </div>
+                            <div class="col-xs-6" >
+                                <b>Date:</b> {{t.datetime}} <br>
+                                <b>Investable amount:</b> {{t.investedAmount.toFixed(2)}}
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

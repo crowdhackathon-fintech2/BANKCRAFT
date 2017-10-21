@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="winvest" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="winvest" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="winvest" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="winvest" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="libs/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="libs/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <script src="libs/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+<div class="navbar navbar-custom navbar-fixed-top">
+    <div class="navbar-header"><a class="navbar-brand" href="#">winvest</a></div>
+</div>
+
+<div class="container-fluid" id="main">
+    <div ng-view></div>
+</div>
+
+<script src="libs/jquery/dist/jquery.min.js"></script>
+<script src="libs/echarts/dist/echarts-en.min.js"></script>
+<script src="libs/chroma-js/chroma.min.js"></script>
+
+<script src="libs/angular/angular.js"></script>
+<script src="libs/angular-route/angular-route.js"></script>
+<script src="libs/angular-resource/angular-resource.min.js"></script>
+<script src="libs/custom/websocket.js"></script>
+
+
+<script src="app.js"></script>
+<script src="home/home.js"></script>
+
+<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

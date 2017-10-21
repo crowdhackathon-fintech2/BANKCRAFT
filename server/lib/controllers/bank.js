@@ -1,6 +1,8 @@
 const db = require('../../util/db')();
 const request = require("request");
 const moment = require("moment");
+const WebSocket = require('ws');
+const wss = new WebSocket.Server({ port: 8080 });
 
 module.exports = function () {
     // Fetch all registered device tokens
@@ -11,7 +13,17 @@ module.exports = function () {
     const ACCOUNT_ID = "762d1a5d-64bb-465f-a0d8-2dd87b95f169";
     const VIEW_ID = "owner";
     const SANDBOX_ID = "bankcraftNBG";
+    const connected = [];
+    let isOpened = false;
 
+    wss.on('connection', function connection(ws) {
+        connected.push(ws)
+        isOpened=true;
+    });
+
+    wss.on('connection', function connection(ws) {
+        isOpened=false;
+    });
 
     // console.log(getRandomDescription())
 
@@ -39,16 +51,21 @@ module.exports = function () {
                 { to:
                     { iban: 'randomIban' },
                     charge_policy: 'SHARED',
-                    value: { currency: 'EUR', amount: Math.random().toFixed(3)+getRandomInt(5,85)},
+                    value: { currency: 'EUR', amount: (Math.random()+getRandomInt(5,85)).toFixed(3)},
                     description: getRandomDescription()
                 },
             json: true };
 
         request(options, function (error, response, body) {
             if (error) return console.error('Failed: %s', error.message);
-
-            addTransactionToDatabase(body)
-
+            const obj = addTransactionToDatabase(body)
+            //if(isOpened)
+            connected.forEach(c => {
+                try {
+                    c.send(JSON.stringify(obj))
+                } catch (e) {
+                }
+            })
         });
     }
 
@@ -68,8 +85,8 @@ module.exports = function () {
             amount: details.value.amount,
             investedAmount: calculateInvest(details.value.amount)
         };
-        db.addTransaction(obj)
-
+        db.addTransaction(obj);
+        return obj;
     }
 
     function generateHistory(){
