@@ -3,29 +3,20 @@ package eu.ptriantafyllopoulos.bankcraft.View.activities;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.squareup.otto.Subscribe;
-
 import eu.ptriantafyllopoulos.bankcraft.BankCraftApplication;
 import eu.ptriantafyllopoulos.bankcraft.R;
-import eu.ptriantafyllopoulos.bankcraft.View.fragments.TransactionListFragment;
-import eu.ptriantafyllopoulos.bankcraft.View.loadingWidget.WaveDrawable;
 import eu.ptriantafyllopoulos.bankcraft.api.ServiceCalls;
 import eu.ptriantafyllopoulos.bankcraft.model.events.GetUserTransactionsResponseEvent;
-import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.UserTransactionsDAO;
 import eu.ptriantafyllopoulos.bankcraft.utils.RuntimeStorage;
 import eu.ptriantafyllopoulos.bankcraft.utils.RuntimeStorageKeys;
 
 public class EntryActivity extends BaseActivity {
 
-
+/* View Variables */
     CardView nbgCard;
     CardView alphaCard;
     CardView efgCard;
@@ -121,6 +112,7 @@ public class EntryActivity extends BaseActivity {
         BankCraftApplication.getInstance().getEventBus().register(this);
     }
 
+    @SuppressWarnings("unused")
     @Subscribe
     public void onGetUserTransactionsResponse(GetUserTransactionsResponseEvent responseEvent) {
         getAppLoader().dismissLoader(this);

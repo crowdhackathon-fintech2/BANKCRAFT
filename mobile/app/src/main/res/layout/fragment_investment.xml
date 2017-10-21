@@ -5,123 +5,228 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="eu.ptriantafyllopoulos.bankcraft.View.fragments.InvestmentFragment">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card1"
+    <!--Todo dynamically implement recycler view in the future-->
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        cardCornerRadius="6dp">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/img_1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/bitcoin_logo"/>
-            <TextView
-                android:textSize="20sp"
-                android:layout_marginLeft="20dp"
-                android:layout_centerInParent="true"
+        <!--PLAN OPTIONS-->
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_low_risk"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            cardCornerRadius="6dp">
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bitcoin"
-                android:layout_toRightOf="@+id/img_1"/>
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_low_risk"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/img_low_risk"/>
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Low Risk plan"
+                    android:layout_toRightOf="@+id/img_low_risk"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card2"
-        android:layout_below="@+id/card1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardCornerRadius="6dp">
+        <android.support.v7.widget.CardView
+            android:layout_below="@+id/card_low_risk"
+            android:id="@+id/card_medium_risk"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            cardCornerRadius="6dp">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/img_2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/etherium_logo"/>
-            <TextView
-                android:textSize="20sp"
-                android:layout_marginLeft="20dp"
-                android:layout_centerInParent="true"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Etherium"
-                android:layout_toRightOf="@+id/img_2"/>
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_medium_risk"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/img_medium_risk"/>
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Medium risk plan"
+                    android:layout_toRightOf="@+id/img_medium_risk"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card3"
-        android:layout_below="@+id/card2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardCornerRadius="6dp">
+        <android.support.v7.widget.CardView
+            android:layout_below="@+id/card_medium_risk"
+            android:id="@+id/card_high_risk"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            cardCornerRadius="6dp">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/img_3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/gold_icon"/>
-            <TextView
-                android:textSize="20sp"
-                android:layout_marginLeft="20dp"
-                android:layout_centerInParent="true"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gold"
-                android:layout_toRightOf="@+id/img_3"/>
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_high_risk"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/img_high_risk"/>
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="High risk plan"
+                    android:layout_toRightOf="@+id/img_high_risk"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card4"
-        android:layout_below="@id/card3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardCornerRadius="6dp">
+        <!--ROW OPTIONS-->
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/img_4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/platinum_icon"/>
-            <TextView
-                android:textSize="20sp"
-                android:layout_marginLeft="20dp"
-                android:layout_centerInParent="true"
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_bitcoin"
+            android:layout_below="@+id/card_high_risk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            cardCornerRadius="6dp">
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Platinum"
-                android:layout_toRightOf="@+id/img_4"/>
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/bitcoin_logo"/>
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bitcoin"
+                    android:layout_toRightOf="@+id/img_1"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_etherium"
+            android:layout_below="@+id/card1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="6dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/etherium_logo"/>
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Etherium"
+                    android:layout_toRightOf="@+id/img_2"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_gold"
+            android:layout_below="@+id/card2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="6dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/gold_icon"/>
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gold"
+                    android:layout_toRightOf="@+id/img_3"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_platinum"
+            android:layout_below="@id/card3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="6dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/platinum_icon"/>
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Platinum"
+                    android:layout_toRightOf="@+id/img_4"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+
+</ScrollView>
+
 
 </RelativeLayout>
