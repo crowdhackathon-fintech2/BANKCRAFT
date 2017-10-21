@@ -16,7 +16,7 @@ import retrofit2.http.Query;
 public interface APICalls {
 
 
-    @GET("user/transactions")
-    Call<UserTransactionsDAO> getUserTransactions(@Query("aid") String azureId);
+    @GET("transactions/a")
+    Call<UserTransactionsDAO> getUserTransactions();
 
 }

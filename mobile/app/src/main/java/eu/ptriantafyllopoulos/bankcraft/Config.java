@@ -7,7 +7,7 @@ package eu.ptriantafyllopoulos.bankcraft;
 public class Config {
     public static final String LOG_TAG = "BankCraft";
 
-    public static String BASE_URL = "http://123.123.123.123";
+    public static String BASE_URL = "http://10.35.252.134:3000";
 
 
 }

@@ -1,0 +1,16 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="eu.ptriantafyllopoulos.bankcraft.View.fragments.TransactionListFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_transactions_listview"
+        android:fastScrollEnabled="true"
+        android:clipToPadding="false"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</RelativeLayout>

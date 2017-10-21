@@ -41,7 +41,7 @@ public class ServiceCalls {
     public static void getUserTransactions(String id)
     {
         APICalls invocations = getRetrofitEngine().create(APICalls.class);
-        Call<UserTransactionsDAO> call = invocations.getUserTransactions(id);
+        Call<UserTransactionsDAO> call = invocations.getUserTransactions();
         call.enqueue(new retrofit2.Callback<UserTransactionsDAO>() {
             @Override
             public void onResponse(Call<UserTransactionsDAO> call, Response<UserTransactionsDAO> response) {

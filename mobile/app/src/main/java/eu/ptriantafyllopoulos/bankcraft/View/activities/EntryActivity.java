@@ -1,7 +1,10 @@
 package eu.ptriantafyllopoulos.bankcraft.View.activities;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
@@ -12,9 +15,11 @@ import com.squareup.otto.Subscribe;
 
 import eu.ptriantafyllopoulos.bankcraft.BankCraftApplication;
 import eu.ptriantafyllopoulos.bankcraft.R;
+import eu.ptriantafyllopoulos.bankcraft.View.fragments.TransactionListFragment;
 import eu.ptriantafyllopoulos.bankcraft.View.loadingWidget.WaveDrawable;
 import eu.ptriantafyllopoulos.bankcraft.api.ServiceCalls;
 import eu.ptriantafyllopoulos.bankcraft.model.events.GetUserTransactionsResponseEvent;
+import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.UserTransactionsDAO;
 
 public class EntryActivity extends BaseActivity {
 
@@ -39,21 +44,14 @@ public class EntryActivity extends BaseActivity {
         winbankCard= findViewById(R.id.card4);
 
 
-        ServiceCalls.getUserTransactions("User1");
+
 
         nbgCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ServiceCalls.getUserTransactions("User1");
                 getAppLoader().showLoader(EntryActivity.this,R.drawable.nbg_icon);
-                if(handler != null) {
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                           getAppLoader().dismissLoader(EntryActivity.this);
-                             handler.removeCallbacks(this);
-                        }
-                    }, 4000L);
-                }
+
             }
         });
 
@@ -98,6 +96,7 @@ public class EntryActivity extends BaseActivity {
                         @Override
                         public void run() {
                             getAppLoader().dismissLoader(EntryActivity.this);
+                            startActivity(new Intent(EntryActivity.this,TransactionsActivity.class));
                             handler.removeCallbacks(this);
                         }
                     }, 4000L);
@@ -110,7 +109,14 @@ public class EntryActivity extends BaseActivity {
 
     @Subscribe
     public void onGetUserTransactionsResponse(GetUserTransactionsResponseEvent responseEvent) {
+        getAppLoader().dismissLoader(this);
+        if(responseEvent.getTransactionsDAO() != null){
+            super.setUserTransactionsDAO(responseEvent.getTransactionsDAO());
+            startActivity(new Intent(this, TransactionsActivity.class));
 
+        }else{
+            Toast.makeText(this,"CALL FAILED",Toast.LENGTH_LONG).show();
+        }
 
     }
 }

@@ -1,7 +1,11 @@
 package eu.ptriantafyllopoulos.bankcraft.model.responseDAOs;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,32 +15,32 @@ import java.util.List;
 public class UserTransactionsDAO {
 
 
-    @SerializedName("Transactions")
-    private List<Transactions> Transactions;
+    @SerializedName("transactions")
+    private List<Transactions> transactions;
 
     public List<Transactions> getTransactions() {
-        return Transactions;
+        return transactions;
     }
 
-    public void setTransactions(List<Transactions> Transactions) {
-        this.Transactions = Transactions;
+    public void setTransactions(List<Transactions> transactions) {
+        this.transactions = transactions;
     }
 
     public static class Transactions {
         @SerializedName("datetime")
-        private int datetime;
+        private String datetime;
         @SerializedName("description")
         private String description;
-        @SerializedName("Amount")
-        private double Amount;
+        @SerializedName("amount")
+        private double amount;
         @SerializedName("investedAmount")
         private double investedAmount;
 
-        public int getDatetime() {
+        public String getDatetime() {
             return datetime;
         }
 
-        public void setDatetime(int datetime) {
+        public void setDatetime(String datetime) {
             this.datetime = datetime;
         }
 
@@ -49,11 +53,11 @@ public class UserTransactionsDAO {
         }
 
         public double getAmount() {
-            return Amount;
+            return amount;
         }
 
-        public void setAmount(double Amount) {
-            this.Amount = Amount;
+        public void setAmount(double amount) {
+            this.amount = amount;
         }
 
         public double getInvestedAmount() {
@@ -64,4 +68,5 @@ public class UserTransactionsDAO {
             this.investedAmount = investedAmount;
         }
     }
+
 }
