@@ -2,6 +2,8 @@ package eu.ptriantafyllopoulos.bankcraft;
 
 import android.app.Application;
 
+import com.squareup.otto.Bus;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.CertificatePinner;
@@ -16,12 +18,14 @@ public class BankCraftApplication extends Application {
 
     private static BankCraftApplication instance;
     private OkHttpClient okHttpClient;
+    private Bus eventBus;
 
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
         okHttpClient = createOkHttpClient();
+        eventBus = new Bus();
     }
     @Override
     public void onTerminate() {
@@ -47,5 +51,9 @@ public class BankCraftApplication extends Application {
 
     public OkHttpClient getOkHttpClient(){
         return okHttpClient;
+    }
+
+    public Bus getEventBus() {
+        return eventBus;
     }
 }
