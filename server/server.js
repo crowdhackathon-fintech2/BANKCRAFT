@@ -3,6 +3,6 @@ var uphold = require('./lib/controllers/uphold')();
 
 // Initialize API
 // api.initialize();
-// uphold.tade();
+uphold.init();
 
 

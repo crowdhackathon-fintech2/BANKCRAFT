@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.14.1",
     "pushy-node": "^1.0.7",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
   }
 }
