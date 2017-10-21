@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import eu.ptriantafyllopoulos.bankcraft.R;
+import eu.ptriantafyllopoulos.bankcraft.utils.AmountUtils;
 
 /**
  * Created by p.triantafyllopoulos on 21/10/2017.
@@ -69,18 +70,18 @@ public class TransactionsListViewAdapter extends RecyclerView.Adapter {
 
         }
         if(item.getDescreption() != null) {
-            viewHolder.amount.setVisibility(View.VISIBLE);
-            viewHolder.amount.setText(item.getDate());
+            viewHolder.date.setVisibility(View.VISIBLE);
+            viewHolder.date.setText(item.getDate());
 
         }
         if(item.getDescreption() != null) {
-            viewHolder.date.setVisibility(View.VISIBLE);
-            viewHolder.date.setText(String.valueOf(item.getAmount()));
+            viewHolder.amount.setVisibility(View.VISIBLE);
+            viewHolder.amount.setText(AmountUtils.formatAmount(item.getAmount()));
 
         }
         if(item.getDescreption() != null) {
             viewHolder.investAmount.setVisibility(View.VISIBLE);
-            viewHolder.investAmount.setText(String.valueOf(item.getInvestAmount()));
+            viewHolder.investAmount.setText(AmountUtils.formatAmount(item.getInvestAmount()));
 
         }
 

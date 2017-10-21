@@ -36,7 +36,7 @@ public class EntryActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        BankCraftApplication.getInstance().getEventBus().register(this);
+
 
         final Handler handler = new Handler();
         setContentView(R.layout.activity_entry);
@@ -107,6 +107,18 @@ public class EntryActivity extends BaseActivity {
         });
 
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        BankCraftApplication.getInstance().getEventBus().unregister(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        BankCraftApplication.getInstance().getEventBus().register(this);
     }
 
     @Subscribe

@@ -4,7 +4,39 @@
     android:layout_height="match_parent"
     tools:context="eu.ptriantafyllopoulos.bankcraft.View.fragments.TransactionListFragment">
 
+    <RelativeLayout
+        android:id="@+id/action_bar_menu_inner_container"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/colorGrey"
+            android:id="@+id/txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="Your Total Saving Amount"/>
+
+        <TextView
+            android:textSize="40sp"
+            android:textColor="@color/colorGrey"
+            android:layout_below="@+id/txt"
+            android:id="@+id/amount_overview_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="asdasdasdas"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/amount_overview_tv"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:text="Invest Now"/>
+    </RelativeLayout>
+
     <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/action_bar_menu_inner_container"
         android:id="@+id/fragment_transactions_listview"
         android:fastScrollEnabled="true"
         android:clipToPadding="false"
