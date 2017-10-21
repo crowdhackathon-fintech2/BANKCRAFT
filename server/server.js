@@ -1,8 +1,9 @@
 var api = require('./lib/api');
-var uphold = require('./lib/controllers/uphold')();
+var bank = require('./lib/controllers/bank')();
 
 // Initialize API
-// api.initialize();
+api.initialize();
 // uphold.tade();
 
+bank.generateHistory();
 
