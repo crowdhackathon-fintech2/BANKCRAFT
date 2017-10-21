@@ -13,7 +13,7 @@ exports.initialize = function () {
 
     // Start listening to API requests from clients
     api.listen(port, function () {
-        console.log('[API]', 'Listening on port ' + port);
+        console.log('[API]', 'Listening on port ' +  port);
     });
 };
 
@@ -22,7 +22,8 @@ function setupRoutes(api) {
     api.get('/', require('./routes/index'));
 
     // Send notifications endpoint
-   // api.get('/push', require('./routes/push'));
+   api.get('/transactions/:id', require('./routes/transactions'));
+    api.get('/transactions', require('./routes/transactions'));
 
     // Device registration endpoint
     //api.get('/register/:device', require('./routes/register'));
