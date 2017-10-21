@@ -19,11 +19,11 @@ public class GetUserTransactionsResponseEvent {
         this.networkError = networkError;
     }
 
-    public UserTransactionsDAO getPasswordDAO() {
+    public UserTransactionsDAO getTransactionsDAO() {
         return transactionsDAO;
     }
 
-    public void setPasswordDAO(UserTransactionsDAO transactionsDAO) {
+    public void setTransactionsDAO(UserTransactionsDAO transactionsDAO) {
         this.transactionsDAO = transactionsDAO;
     }
 

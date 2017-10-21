@@ -8,8 +8,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.squareup.otto.Subscribe;
+
+import eu.ptriantafyllopoulos.bankcraft.BankCraftApplication;
 import eu.ptriantafyllopoulos.bankcraft.R;
 import eu.ptriantafyllopoulos.bankcraft.View.loadingWidget.WaveDrawable;
+import eu.ptriantafyllopoulos.bankcraft.api.ServiceCalls;
+import eu.ptriantafyllopoulos.bankcraft.model.events.GetUserTransactionsResponseEvent;
 
 public class EntryActivity extends BaseActivity {
 
@@ -24,6 +29,8 @@ public class EntryActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        BankCraftApplication.getInstance().getEventBus().register(this);
+
         final Handler handler = new Handler();
         setContentView(R.layout.activity_entry);
         nbgCard= findViewById(R.id.card1);
@@ -31,6 +38,8 @@ public class EntryActivity extends BaseActivity {
         efgCard= findViewById(R.id.card3);
         winbankCard= findViewById(R.id.card4);
 
+
+        ServiceCalls.getUserTransactions("User1");
 
         nbgCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +104,12 @@ public class EntryActivity extends BaseActivity {
                 }
             }
         });
+
+
+    }
+
+    @Subscribe
+    public void onGetUserTransactionsResponse(GetUserTransactionsResponseEvent responseEvent) {
 
 
     }
