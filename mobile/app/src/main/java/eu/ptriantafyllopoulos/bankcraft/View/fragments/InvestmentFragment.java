@@ -45,18 +45,18 @@ public class InvestmentFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        CardView lowCard,mediumCard,highCard,bitCard,ethCard,goldCard,platCard;
-        View v = inflater.inflate(R.layout.fragment_investment, container, false);
-        lowCard= v.findViewById(R.id.card_low_risk);
-        mediumCard= v.findViewById(R.id.card_medium_risk);
-        highCard= v.findViewById(R.id.card_high_risk);
-        bitCard= v.findViewById(R.id.card_bitcoin);
-        ethCard= v.findViewById(R.id.card_etherium);
-        goldCard= v.findViewById(R.id.card_gold);
-        platCard= v.findViewById(R.id.card_platinum);
+//        CardView lowCard,mediumCard,highCard,bitCard,ethCard,goldCard,platCard;
+//        View v = inflater.inflate(R.layout.fragment_investment, container, false);
+//        lowCard= v.findViewById(R.id.card_low_risk);
+//        mediumCard= v.findViewById(R.id.card_medium_risk);
+//        highCard= v.findViewById(R.id.card_high_risk);
+//        bitCard= v.findViewById(R.id.card_bitcoin);
+//        ethCard= v.findViewById(R.id.card_etherium);
+//        goldCard= v.findViewById(R.id.card_gold);
+//        platCard= v.findViewById(R.id.card_platinum);
 
 
-        return v;
+        return inflater.inflate(R.layout.fragment_investment, container, false);
     }
 
     @Override
