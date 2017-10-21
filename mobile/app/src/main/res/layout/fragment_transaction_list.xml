@@ -27,6 +27,7 @@
             android:text="asdasdasdas"
             />
         <Button
+            android:id="@+id/investBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/amount_overview_tv"

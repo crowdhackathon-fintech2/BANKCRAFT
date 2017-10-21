@@ -1,5 +1,7 @@
 package eu.ptriantafyllopoulos.bankcraft.api;
 
+import eu.ptriantafyllopoulos.bankcraft.model.requests.InvestRequest;
+import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.InvestDAO;
 import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.UserTransactionsDAO;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -18,5 +20,8 @@ public interface APICalls {
 
     @GET("transactions/a")
     Call<UserTransactionsDAO> getUserTransactions();
+
+    @POST("invest")
+    Call<InvestDAO> invest(@Body InvestRequest request);
 
 }
