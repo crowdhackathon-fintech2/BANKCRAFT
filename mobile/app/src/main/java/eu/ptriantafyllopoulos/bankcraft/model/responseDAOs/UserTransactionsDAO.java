@@ -17,6 +17,8 @@ public class UserTransactionsDAO {
 
     @SerializedName("transactions")
     private List<Transactions> transactions;
+    @SerializedName("total")
+    private double totalInvestAmount;
 
     public List<Transactions> getTransactions() {
         return transactions;
@@ -24,6 +26,14 @@ public class UserTransactionsDAO {
 
     public void setTransactions(List<Transactions> transactions) {
         this.transactions = transactions;
+    }
+
+    public double getTotalInvestAmount() {
+        return totalInvestAmount;
+    }
+
+    public void setTotalInvestAmount(double totalInvestAmount) {
+        this.totalInvestAmount = totalInvestAmount;
     }
 
     public static class Transactions {

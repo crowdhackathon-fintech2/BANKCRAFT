@@ -6,6 +6,9 @@ import com.google.gson.GsonBuilder;
 import eu.ptriantafyllopoulos.bankcraft.BankCraftApplication;
 import eu.ptriantafyllopoulos.bankcraft.Config;
 import eu.ptriantafyllopoulos.bankcraft.model.events.GetUserTransactionsResponseEvent;
+import eu.ptriantafyllopoulos.bankcraft.model.events.InvestResponseEvent;
+import eu.ptriantafyllopoulos.bankcraft.model.requests.InvestRequest;
+import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.InvestDAO;
 import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.UserTransactionsDAO;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -54,4 +57,26 @@ public class ServiceCalls {
             }
         });
     }
+
+    /**
+     * Service Call to Invest User Savings in the selected option
+     * @param investRequest InvestRequest
+     * **/
+    public static void manageAlias(InvestRequest investRequest) {
+        APICalls invocations = getRetrofitEngine().create(APICalls.class);
+
+        Call<InvestDAO> call = invocations.invest( investRequest);
+        call.enqueue(new retrofit2.Callback<InvestDAO>() {
+            @Override
+            public void onResponse(Call<InvestDAO> call, Response<InvestDAO> response) {
+                BankCraftApplication.getInstance().getEventBus().post(new InvestResponseEvent(response.body()));
+            }
+
+            @Override
+            public void onFailure(Call<InvestDAO> call, Throwable t) {
+                BankCraftApplication.getInstance().getEventBus().post(new InvestResponseEvent(t.getMessage()));
+            }
+        });
+    }
+
 }

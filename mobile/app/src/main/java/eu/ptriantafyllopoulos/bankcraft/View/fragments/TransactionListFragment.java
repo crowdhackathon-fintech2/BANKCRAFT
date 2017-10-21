@@ -11,6 +11,8 @@ import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +21,8 @@ import eu.ptriantafyllopoulos.bankcraft.R;
 import eu.ptriantafyllopoulos.bankcraft.View.adapters.TransactionItemViewModel;
 import eu.ptriantafyllopoulos.bankcraft.View.adapters.TransactionsListViewAdapter;
 import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.UserTransactionsDAO;
+import eu.ptriantafyllopoulos.bankcraft.utils.AmountUtils;
+import eu.ptriantafyllopoulos.bankcraft.utils.RuntimeStorage;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,6 +43,8 @@ public class TransactionListFragment extends Fragment {
     //View Variables
     //View fragmentView;
     private TransactionsListViewAdapter adapter;
+    private TextView totalAmountTv;
+    private Button investBtn;
 
     //Interaction Listener
     private OnTransactionListFragmentInteractionListener mListener;
@@ -68,6 +74,7 @@ public class TransactionListFragment extends Fragment {
         if (getArguments() != null) {
             //getArguments().getParcelable(TRANSACTION_DAO);
         }
+        incomingDao = (UserTransactionsDAO) RuntimeStorage.getInstance().getObject(TRANSACTION_DAO);
         if(incomingDao!=null){
             transformDAOToViewModel(incomingDao);
         }
@@ -96,6 +103,16 @@ public class TransactionListFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        totalAmountTv = view.findViewById(R.id.amount_overview_tv);
+        investBtn = view.findViewById(R.id.investBtn);
+        totalAmountTv.setText(AmountUtils.formatAmount(incomingDao.getTotalInvestAmount()));
+        investBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onInvestClicked();
+            }
+        });
+
         setUpListView(view);
     }
 
@@ -162,12 +179,8 @@ public class TransactionListFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnTransactionListFragmentInteractionListener {
-
+        void onInvestClicked();
     }
 }
