@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Toast;
+
 import com.squareup.otto.Subscribe;
+
 import eu.ptriantafyllopoulos.bankcraft.BankCraftApplication;
 import eu.ptriantafyllopoulos.bankcraft.R;
 import eu.ptriantafyllopoulos.bankcraft.api.ServiceCalls;
@@ -16,7 +18,7 @@ import eu.ptriantafyllopoulos.bankcraft.utils.RuntimeStorageKeys;
 
 public class EntryActivity extends BaseActivity {
 
-/* View Variables */
+    /* View Variables */
     CardView nbgCard;
     CardView alphaCard;
     CardView efgCard;
@@ -28,22 +30,19 @@ public class EntryActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
 
-
         final Handler handler = new Handler();
         setContentView(R.layout.activity_entry);
-        nbgCard= findViewById(R.id.card1);
-        alphaCard= findViewById(R.id.card2);
-        efgCard= findViewById(R.id.card3);
-        winbankCard= findViewById(R.id.card4);
-
-
+        nbgCard = findViewById(R.id.card1);
+        alphaCard = findViewById(R.id.card2);
+        efgCard = findViewById(R.id.card3);
+        winbankCard = findViewById(R.id.card4);
 
 
         nbgCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ServiceCalls.getUserTransactions("User1");
-                getAppLoader().showLoader(EntryActivity.this,R.drawable.nbg_icon);
+                getAppLoader().showLoader(EntryActivity.this, R.drawable.nbg_icon);
 
             }
         });
@@ -51,8 +50,8 @@ public class EntryActivity extends BaseActivity {
         alphaCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getAppLoader().showLoader(EntryActivity.this,R.drawable.alpha_logo);
-                if(handler != null) {
+                getAppLoader().showLoader(EntryActivity.this, R.drawable.alpha_logo);
+                if (handler != null) {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -67,8 +66,8 @@ public class EntryActivity extends BaseActivity {
         efgCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getAppLoader().showLoader(EntryActivity.this,R.drawable.eurobank_logo);
-                if(handler != null) {
+                getAppLoader().showLoader(EntryActivity.this, R.drawable.eurobank_logo);
+                if (handler != null) {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -83,13 +82,13 @@ public class EntryActivity extends BaseActivity {
         winbankCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getAppLoader().showLoader(EntryActivity.this,R.drawable.piraeus_logo);
-                if(handler != null) {
+                getAppLoader().showLoader(EntryActivity.this, R.drawable.piraeus_logo);
+                if (handler != null) {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             getAppLoader().dismissLoader(EntryActivity.this);
-                            startActivity(new Intent(EntryActivity.this,TransactionsActivity.class));
+                            startActivity(new Intent(EntryActivity.this, TransactionsActivity.class));
                             handler.removeCallbacks(this);
                         }
                     }, 4000L);
@@ -116,12 +115,12 @@ public class EntryActivity extends BaseActivity {
     @Subscribe
     public void onGetUserTransactionsResponse(GetUserTransactionsResponseEvent responseEvent) {
         getAppLoader().dismissLoader(this);
-        if(responseEvent.getTransactionsDAO() != null){
-            RuntimeStorage.getInstance().put(RuntimeStorageKeys.TRANSACTION_DAO,responseEvent.getTransactionsDAO());
+        if (responseEvent.getTransactionsDAO() != null) {
+            RuntimeStorage.getInstance().put(RuntimeStorageKeys.TRANSACTION_DAO, responseEvent.getTransactionsDAO());
             startActivity(new Intent(this, TransactionsActivity.class));
 
-        }else{
-            Toast.makeText(this,"CALL FAILED",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "CALL FAILED", Toast.LENGTH_LONG).show();
         }
 
     }

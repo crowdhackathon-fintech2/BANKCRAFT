@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class CachedDataStructure {
 
-    private HashMap<String,String> varHashMap;
+    private HashMap<String, String> varHashMap;
     private HashMap<String, Object> objectHashMap;
 
     public CachedDataStructure() {
@@ -27,7 +27,7 @@ public class CachedDataStructure {
     /**
      * Function to clear global cache
      **/
-    public void clearCache(){
+    public void clearCache() {
         varHashMap.clear();
         objectHashMap.clear();
     }

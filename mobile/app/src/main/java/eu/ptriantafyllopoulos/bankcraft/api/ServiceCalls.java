@@ -39,10 +39,10 @@ public class ServiceCalls {
 
     /**
      * Service Call to retrieve User Transactions
+     *
      * @param id String
-     * **/
-    public static void getUserTransactions(String id)
-    {
+     **/
+    public static void getUserTransactions(String id) {
         APICalls invocations = getRetrofitEngine().create(APICalls.class);
         Call<UserTransactionsDAO> call = invocations.getUserTransactions();
         call.enqueue(new retrofit2.Callback<UserTransactionsDAO>() {
@@ -60,12 +60,13 @@ public class ServiceCalls {
 
     /**
      * Service Call to Invest User Savings in the selected option
+     *
      * @param investRequest InvestRequest
-     * **/
-    public static void manageAlias(InvestRequest investRequest) {
+     **/
+    public static void manageInvestOption(InvestRequest investRequest) {
         APICalls invocations = getRetrofitEngine().create(APICalls.class);
 
-        Call<InvestDAO> call = invocations.invest( investRequest);
+        Call<InvestDAO> call = invocations.invest(investRequest);
         call.enqueue(new retrofit2.Callback<InvestDAO>() {
             @Override
             public void onResponse(Call<InvestDAO> call, Response<InvestDAO> response) {

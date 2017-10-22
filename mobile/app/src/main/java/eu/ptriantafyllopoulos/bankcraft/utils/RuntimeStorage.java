@@ -12,8 +12,8 @@ public class RuntimeStorage {
     /*the cached data stracture*/
     private CachedDataStructure cachedDataStructure;
 
-    public static RuntimeStorage getInstance(){
-        if(myStore == null){
+    public static RuntimeStorage getInstance() {
+        if (myStore == null) {
             myStore = new RuntimeStorage();
         }
         return myStore;
@@ -21,7 +21,7 @@ public class RuntimeStorage {
 
     /**
      * Private constructor
-     * */
+     */
     private RuntimeStorage() {
         //Empty implementation
     }
@@ -31,7 +31,7 @@ public class RuntimeStorage {
     }
 
     public CachedDataStructure getCachedDataStructure() {
-        if(cachedDataStructure == null){
+        if (cachedDataStructure == null) {
             cachedDataStructure = new CachedDataStructure();
         }
         return cachedDataStructure;
@@ -40,6 +40,7 @@ public class RuntimeStorage {
 
     /**
      * Get the object hash map
+     *
      * @return the object hash map
      */
     public HashMap<String, Object> getObjectHashMap() {
@@ -49,7 +50,8 @@ public class RuntimeStorage {
 
     /**
      * Put Dao to dao hash map
-     * @param key the key
+     *
+     * @param key    the key
      * @param object the object
      */
     public void put(String key,
@@ -60,6 +62,7 @@ public class RuntimeStorage {
 
     /**
      * Get the Object from the object hash map
+     *
      * @param key the key
      * @return the Object found or null
      */
@@ -73,37 +76,39 @@ public class RuntimeStorage {
     }
 
 
-
-
     /**
      * Get the variable hash map
+     *
      * @return the varialbe hash map
      */
-    public HashMap<String,String> getVariableHashMap(){
+    public HashMap<String, String> getVariableHashMap() {
         return getCachedDataStructure().getVarHashMap();
     }
 
     /**
      * Put value to variable hash map
-     * @param key the key
+     *
+     * @param key   the key
      * @param value the value
      */
-    public void put(String key , String value){
+    public void put(String key, String value) {
         getCachedDataStructure().getVarHashMap().put(key, value);
     }
 
     /**
      * Get the variable from the variable hash map
+     *
      * @param key the key
      * @return the variable found or null
      */
-    public String getVariable(String key){
+    public String getVariable(String key) {
         return getCachedDataStructure().getVarHashMap().get(key);
     }
 
     /**
      * clear the singleton
      */
-    public void clear(){
-        getCachedDataStructure().clearCache();}
+    public void clear() {
+        getCachedDataStructure().clearCache();
+    }
 }
