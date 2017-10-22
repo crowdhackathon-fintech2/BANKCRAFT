@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.14.1",
     "moment": "^2.19.1",
+    "node-gcm": "^0.14.8",
     "node-schedule": "^1.2.5",
     "pushy-node": "^1.0.7",
     "request": "^2.83.0",
