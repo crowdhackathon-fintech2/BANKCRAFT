@@ -42,6 +42,7 @@
                     android:text="Low Risk plan"
                     android:layout_toRightOf="@+id/img_low_risk"/>
                 <TextView
+                    android:layout_marginLeft="20dp"
                     android:layout_below="@+id/img_low_risk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,6 +82,7 @@
                     android:layout_toRightOf="@+id/img_medium_risk"/>
 
                 <TextView
+                    android:layout_marginLeft="20dp"
                     android:layout_below="@+id/img_medium_risk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -119,6 +121,7 @@
                     android:text="High risk plan"
                     android:layout_toRightOf="@+id/img_high_risk"/>
                 <TextView
+                    android:layout_marginLeft="20dp"
                     android:layout_below="@+id/img_high_risk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

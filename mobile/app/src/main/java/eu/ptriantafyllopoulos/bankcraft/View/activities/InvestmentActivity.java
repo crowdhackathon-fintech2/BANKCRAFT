@@ -42,7 +42,7 @@ public class InvestmentActivity extends BaseActivity implements InvestmentFragme
     /* Callbacks from Fragment */
     @Override
     public void onOptionClicked(int optKey) {
-        getAppLoader().showLoader(this, R.drawable.app_loader_icon);
+        getAppLoader().showLoader(this,R.drawable.app_loader);
         InvestRequest request = new InvestRequest();
         request.setInvestOpt(optKey);
         ServiceCalls.manageInvestOption(request);
