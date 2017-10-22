@@ -26,8 +26,11 @@ function setupRoutes(api) {
         res.sendFile(path.join(__dirname + '/../views/index.html'));
     });
     // Send notifications endpoint
-   api.get('/transactions/:id', require('./routes/transactions'));
+    api.get('/transactions/:id', require('./routes/transactions'));
     api.get('/transactions', require('./routes/transactions'));
+    api.post('/invest', require('./routes/invest'));
+    api.post('/token', require('./routes/token'));
+    api.get("/dopay", require('./routes/createpayment'));
 
     // Device registration endpoint
     //api.get('/register/:device', require('./routes/register'));

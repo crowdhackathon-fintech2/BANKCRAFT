@@ -2,37 +2,14 @@
 const data = {
     transactions:[
         { datetime: '21/10/2017',
-            description: 'Tickets',
-            amount: 0.16,
-            investedAmount: 0.84 },
+            description: 'Vasilopoulos',
+            amount: 65.84,
+            investedAmount: 0.16 },
         { datetime: '21/10/2017',
             description: 'Tickets',
-            amount: 0.16,
-            investedAmount: 0.84 },
-        { datetime: '21/10/2017',
-            description: 'Tickets',
-            amount: 0.16,
-            investedAmount: 0.84 },
-        { datetime: '21/10/2017',
-            description: 'Tickets',
-            amount: 0.16,
-            investedAmount: 0.84 },
-        { datetime: '21/10/2017',
-            description: 'Tickets',
-            amount: 0.16,
-            investedAmount: 0.84 },
-        { datetime: '21/10/2017',
-            description: 'Tickets',
-            amount: 0.16,
-            investedAmount: 0.84 },
-        { datetime: '21/10/2017',
-            description: 'Tickets',
-            amount: 0.16,
-            investedAmount: 0.84 },
-        { datetime: '21/10/2017',
-            description: 'Tickets',
-            amount: 0.16,
-            investedAmount: 0.84 }
+            amount: 15.80,
+            investedAmount: 0.30 },
+
     ]
 };
 

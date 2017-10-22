@@ -36,7 +36,7 @@ module.exports = function () {
         return Math.floor(max - Math.random()*(max-min))
     }
 
-    function doTransaction(){
+    function doTransaction(amount){
         var options = { method: 'POST',
             url: `https://apis.nbg.gr/public/nbgapis/obp/v3.0.1/banks/${BANK_ID}/accounts/${ACCOUNT_ID}/${VIEW_ID}/transaction-request-types/sepa/transaction-requests`,
             headers:
@@ -52,7 +52,7 @@ module.exports = function () {
                 { to:
                     { iban: 'randomIban' },
                     charge_policy: 'SHARED',
-                    value: { currency: 'EUR', amount: (Math.random()+getRandomInt(5,85)).toFixed(3)},
+                    value: { currency: 'EUR', amount: amount},
                     description: getRandomDescription()
                 },
             json: true };

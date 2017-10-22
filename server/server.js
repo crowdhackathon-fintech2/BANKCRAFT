@@ -1,6 +1,8 @@
 const api = require('./lib/api');
 const bank = require('./lib/controllers/bank')();
 const schedule = require('node-schedule');
+const simplifyCtrl = require('./lib/controllers/simplify')();
+
 // Initialize API
 api.initialize();
 // uphold.tade();
@@ -8,8 +10,10 @@ api.initialize();
 bank.generateHistory();
 
 
+/*
 
-const event = schedule.scheduleJob("*/1 * * * *", function() {
+const event = schedule.scheduleJob("*!/1 * * * *", function() {
     console.log('This runs every 1 minute');
     bank.doTransaction();
 });
+*/
