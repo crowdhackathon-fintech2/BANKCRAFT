@@ -44,7 +44,7 @@ public class TransactionListFragment extends Fragment {
     //View fragmentView;
     private TransactionsListViewAdapter adapter;
     private TextView totalAmountTv;
-    private Button investBtn;
+//    private Button investBtn;
 
     //Interaction Listener
     private OnTransactionListFragmentInteractionListener mListener;
@@ -104,14 +104,14 @@ public class TransactionListFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         totalAmountTv = view.findViewById(R.id.amount_overview_tv);
-        investBtn = view.findViewById(R.id.investBtn);
+//        investBtn = view.findViewById(R.id.investBtn);
         totalAmountTv.setText(AmountUtils.formatAmount(incomingDao.getTotalInvestAmount()));
-        investBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mListener.onInvestClicked();
-            }
-        });
+//        investBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mListener.onInvestClicked();
+//            }
+//        });
 
         setUpListView(view);
     }

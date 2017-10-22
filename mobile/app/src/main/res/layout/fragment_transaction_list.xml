@@ -26,14 +26,14 @@
             android:layout_height="wrap_content"
             android:text="asdasdasdas"
             />
-        <Button
-            android:id="@+id/investBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/amount_overview_tv"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="20dp"
-            android:text="Invest Now"/>
+        <!--<Button-->
+            <!--android:id="@+id/investBtn"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toRightOf="@+id/amount_overview_tv"-->
+            <!--android:layout_marginTop="40dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:text="Invest Now"/>-->
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
