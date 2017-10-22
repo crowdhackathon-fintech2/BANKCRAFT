@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "154019641248",
+    "firebase_url": "https://mobile-bb230.firebaseio.com",
+    "project_id": "mobile-bb230",
+    "storage_bucket": "mobile-bb230.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154019641248:android:1be0f3235f17c1a8",
+        "android_client_info": {
+          "package_name": "eu.ptriantafyllopoulos.bankcraft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154019641248-6kkvct29mr36r0nslf607b18njec7c3v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eu.ptriantafyllopoulos.bankcraft",
+            "certificate_hash": "cf91e2c164352ceacf9f0a49398acfc1b1abbce6"
+          }
+        },
+        {
+          "client_id": "154019641248-mtgqda4r70i3nock0hrb9o45st6j4ikk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEaZSSDxkKw_17BNVEJ0hSr3H9Ux4vhl8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154019641248-mtgqda4r70i3nock0hrb9o45st6j4ikk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

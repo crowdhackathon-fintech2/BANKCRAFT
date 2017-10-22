@@ -7,8 +7,11 @@ import eu.ptriantafyllopoulos.bankcraft.BankCraftApplication;
 import eu.ptriantafyllopoulos.bankcraft.Config;
 import eu.ptriantafyllopoulos.bankcraft.model.events.GetUserTransactionsResponseEvent;
 import eu.ptriantafyllopoulos.bankcraft.model.events.InvestResponseEvent;
+import eu.ptriantafyllopoulos.bankcraft.model.events.SendTokenResponseEvent;
 import eu.ptriantafyllopoulos.bankcraft.model.requests.InvestRequest;
+import eu.ptriantafyllopoulos.bankcraft.model.requests.SendTokenRequest;
 import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.InvestDAO;
+import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.SendTokenDAO;
 import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.UserTransactionsDAO;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -76,6 +79,28 @@ public class ServiceCalls {
             @Override
             public void onFailure(Call<InvestDAO> call, Throwable t) {
                 BankCraftApplication.getInstance().getEventBus().post(new InvestResponseEvent(t.getMessage()));
+            }
+        });
+    }
+
+    /**
+     * Service Call to Send FCM TOKEN
+     *
+     * @param tokenRequest InvestRequest
+     **/
+    public static void sendToken(SendTokenRequest tokenRequest) {
+        APICalls invocations = getRetrofitEngine().create(APICalls.class);
+
+        Call<SendTokenDAO> call = invocations.sendFCMToken(tokenRequest);
+        call.enqueue(new retrofit2.Callback<SendTokenDAO>() {
+            @Override
+            public void onResponse(Call<SendTokenDAO> call, Response<SendTokenDAO> response) {
+                BankCraftApplication.getInstance().getEventBus().post(new SendTokenResponseEvent(response.body()));
+            }
+
+            @Override
+            public void onFailure(Call<SendTokenDAO> call, Throwable t) {
+                BankCraftApplication.getInstance().getEventBus().post(new SendTokenResponseEvent(t.getMessage()));
             }
         });
     }

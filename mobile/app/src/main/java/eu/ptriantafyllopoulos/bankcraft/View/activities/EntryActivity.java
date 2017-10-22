@@ -13,6 +13,9 @@ import eu.ptriantafyllopoulos.bankcraft.BankCraftApplication;
 import eu.ptriantafyllopoulos.bankcraft.R;
 import eu.ptriantafyllopoulos.bankcraft.api.ServiceCalls;
 import eu.ptriantafyllopoulos.bankcraft.model.events.GetUserTransactionsResponseEvent;
+import eu.ptriantafyllopoulos.bankcraft.model.events.SendTokenResponseEvent;
+import eu.ptriantafyllopoulos.bankcraft.model.requests.SendTokenRequest;
+import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.SendTokenDAO;
 import eu.ptriantafyllopoulos.bankcraft.utils.RuntimeStorage;
 import eu.ptriantafyllopoulos.bankcraft.utils.RuntimeStorageKeys;
 
@@ -28,9 +31,20 @@ public class EntryActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         final Handler handler = new Handler();
+        if (handler != null) {
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    SendTokenRequest req = new SendTokenRequest();
+                    req.setToken(BankCraftApplication.getInstance().getFirebaseInstanceId());
+                    ServiceCalls.sendToken(req);
+                }
+            }, 4000L);
+        }
+
+
+
         setContentView(R.layout.activity_entry);
         nbgCard = findViewById(R.id.card1);
         alphaCard = findViewById(R.id.card2);
@@ -126,6 +140,19 @@ public class EntryActivity extends BaseActivity {
         if (responseEvent.getTransactionsDAO() != null) {
             RuntimeStorage.getInstance().put(RuntimeStorageKeys.TRANSACTION_DAO, responseEvent.getTransactionsDAO());
             startActivity(new Intent(this, TransactionsActivity.class));
+
+        } else {
+            Toast.makeText(this, "CALL FAILED", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    @SuppressWarnings("unused")
+    @Subscribe
+    public void onSendTokenResponse(SendTokenResponseEvent responseEvent) {
+//        getAppLoader().dismissLoader(this);
+        if (responseEvent.getSendTokenDao() != null) {
+            Toast.makeText(this, "CALL Success", Toast.LENGTH_LONG).show();
 
         } else {
             Toast.makeText(this, "CALL FAILED", Toast.LENGTH_LONG).show();

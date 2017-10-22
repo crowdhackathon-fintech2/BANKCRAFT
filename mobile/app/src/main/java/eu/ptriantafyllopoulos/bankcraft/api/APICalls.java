@@ -1,7 +1,9 @@
 package eu.ptriantafyllopoulos.bankcraft.api;
 
 import eu.ptriantafyllopoulos.bankcraft.model.requests.InvestRequest;
+import eu.ptriantafyllopoulos.bankcraft.model.requests.SendTokenRequest;
 import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.InvestDAO;
+import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.SendTokenDAO;
 import eu.ptriantafyllopoulos.bankcraft.model.responseDAOs.UserTransactionsDAO;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -23,5 +25,8 @@ public interface APICalls {
 
     @POST("invest")
     Call<InvestDAO> invest(@Body InvestRequest request);
+
+    @POST("token")
+    Call<SendTokenDAO> sendFCMToken(@Body SendTokenRequest request);
 
 }

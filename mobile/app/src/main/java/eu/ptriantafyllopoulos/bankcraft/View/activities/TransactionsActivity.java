@@ -25,70 +25,21 @@ import eu.ptriantafyllopoulos.bankcraft.utils.RuntimeStorageKeys;
 
 public class TransactionsActivity extends BaseActivity  implements TransactionListFragment.OnTransactionListFragmentInteractionListener{
 
-    private NotificationUtils mNotificationUtils;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transactions);
 
-        UserTransactionsDAO transactionsDAO = (UserTransactionsDAO) RuntimeStorage.getInstance().getObject(RuntimeStorageKeys.TRANSACTION_DAO);
-        mNotificationUtils = new NotificationUtils(BankCraftApplication.getInstance().getApplicationContext());
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         TransactionListFragment fragment = TransactionListFragment.newInstance();
         fragmentTransaction.add(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            raiseNotificationOreo("Investment Oportunity","Your round up money to invest is: "+ AmountUtils.formatAmount(transactionsDAO.getTotalInvestAmount()));
-        }else{
-            raiseNotificationPreOreo(this,"Investment Oportunity","Your round up money to invest is: "+ AmountUtils.formatAmount(transactionsDAO.getTotalInvestAmount()));
-        }
-
 
     }
 
-    private void raiseNotificationOreo(String title, String body){
-        NotificationCompat.Builder nb = mNotificationUtils.
-                getDefaultNotification(title, body);
 
-        mNotificationUtils.getNotificationManager().notify(1, nb.build());
-    }
-
-    /**
-     * Function to Raise Android OS Notification to inform the user for a possible ongoing web transaction
-     * and to request action to approve or deny the action.
-     *
-     * @param c     The basic context to set up the notification
-     * @param title String : The title of the notification
-     * @param body  String : The text content of the notification
-     */
-    private static void raiseNotificationPreOreo(Context c, String title, String body) {
-        int notificationID = 1;
-        Intent notificationIntent = new Intent(c, InvestmentActivity.class);
-        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
-                | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-
-
-        PendingIntent pi = PendingIntent.getActivity(c, 0, notificationIntent, 0);
-        Uri alertSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(c)
-                        .setSmallIcon(R.drawable.ic_attach_money_black_24dp)
-                        .setContentTitle(title)
-                        .setContentText(body).
-                        setSound(alertSound)
-                        .setColor(ContextCompat.getColor(c, R.color.colorGreen))
-                        .setVibrate(new long[]{1000, 1000})
-                        .setLights(ContextCompat.getColor(c, R.color.colorGreen), 3000, 3000).
-                        setContentIntent(pi).setAutoCancel(true);
-
-
-
-        NotificationManager mNotificationManager = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
-
-        mNotificationManager.notify(notificationID, mBuilder.build());
-    }
 
     //TransactionListFragment Callbacks
     @Override
