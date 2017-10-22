@@ -17,6 +17,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Map;
 
+import eu.ptriantafyllopoulos.bankcraft.View.activities.FinalActivity;
 import eu.ptriantafyllopoulos.bankcraft.View.activities.InvestmentActivity;
 import eu.ptriantafyllopoulos.bankcraft.utils.AmountUtils;
 
@@ -55,7 +56,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
      */
     private static void raiseNotificationPreOreo(Context c, String title, String body) {
         int notificationID = 1;
-        Intent notificationIntent = new Intent(c, InvestmentActivity.class);
+        Intent notificationIntent = new Intent(c, FinalActivity.class);
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 

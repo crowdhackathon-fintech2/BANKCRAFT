@@ -13,6 +13,8 @@ import android.support.v4.app.NotificationCompat;
 
 
 import eu.ptriantafyllopoulos.bankcraft.R;
+import eu.ptriantafyllopoulos.bankcraft.View.activities.EntryActivity;
+import eu.ptriantafyllopoulos.bankcraft.View.activities.FinalActivity;
 import eu.ptriantafyllopoulos.bankcraft.View.activities.InvestmentActivity;
 
 /**
@@ -59,17 +61,21 @@ public class NotificationUtils extends ContextWrapper {
 
     public NotificationCompat.Builder getDefaultNotification(String title, String body) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Intent notificationIntent = new Intent(getApplicationContext(), InvestmentActivity.class);
-            notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+            Intent acceptIntent = new Intent(getApplicationContext(), FinalActivity.class);
+            acceptIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            Intent declineIntent = new Intent(getApplicationContext(), EntryActivity.class);
+            acceptIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                     | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
 
-            PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, 0);
+            PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0, acceptIntent, 0);
+            PendingIntent pi2 = PendingIntent.getActivity(getApplicationContext(), 0, declineIntent, 0);
             return new NotificationCompat.Builder(getApplicationContext(), ANDROID_CHANNEL_ID)
                     .setContentTitle(title)
                     .setContentText(body)
                     .addAction(R.drawable.ic_check_black_24dp,"APPROVE",pi)
-                    .addAction(R.drawable.ic_close_black_24dp,"DECLINE",pi)
+                    .addAction(R.drawable.ic_close_black_24dp,"DECLINE",pi2)
                     .setVisibility(Notification.VISIBILITY_PUBLIC)
                     .setColor(getColor(R.color.colorGreen))
                     .setSmallIcon(R.drawable.ic_attach_money_black_24dp)
