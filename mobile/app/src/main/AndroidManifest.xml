@@ -12,22 +12,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".View.activities.EntryActivity"
+            android:name=".View.activities.InvestmentActivity"
             android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.activities.TransactionsActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait"/>
+
         <activity
-            android:name=".View.activities.InvestmentActivity"
+            android:name=".View.activities.EntryActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".View.activities.TransactionsActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".View.activities.FinalActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+
+
+
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+
     </application>
 
 </manifest>
