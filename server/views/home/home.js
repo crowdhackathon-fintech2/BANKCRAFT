@@ -20,8 +20,19 @@
         dataStream.onMessage(function (message) {
             //vm.collection.push(angular.fromJson(message.data).message);
             vm.trans.push(angular.fromJson(message.data));
-            console.log(angular.fromJson(message.data))
         });
+
+        vm.notify = function(){
+
+        }
+
+        vm.getTotalSaved = function(){
+            return vm.trans.reduce((a,c)=> a+c.investedAmount,0)
+        }
+
+        vm.getTotalPurchases = function(){
+
+        }
     }
 
 })();

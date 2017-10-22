@@ -18,10 +18,11 @@ module.exports = function () {
 
     wss.on('connection', function connection(ws) {
         connected.push(ws)
+        db.getDatabase().transactions.forEach(a=> ws.send(JSON.stringify(a)))
         isOpened=true;
     });
 
-    wss.on('connection', function connection(ws) {
+    wss.on('disconnection', function connection(ws) {
         isOpened=false;
     });
 
@@ -96,7 +97,6 @@ module.exports = function () {
         }
     }
 
-    getTransactionHistory();
     function getTransactionHistory(){
         var options = { method: 'GET',
             url: `https://apis.nbg.gr/public/nbgapis/obp/v3.0.1/my/banks/${BANK_ID}/accounts/${ACCOUNT_ID}/transactions`,
@@ -116,8 +116,6 @@ module.exports = function () {
             if(error){
                 return console.log('Error retrieving transactions');
             }
-
-            body.forEach(v=>console.log(v.details.description))
         });
 
     }

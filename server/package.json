@@ -16,6 +16,7 @@
     "pushy-node": "^1.0.7",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
+    "simplify-commerce": "^1.7.0",
     "ws": "^3.2.0"
   }
 }
