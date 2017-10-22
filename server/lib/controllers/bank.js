@@ -3,6 +3,7 @@ const request = require("request");
 const moment = require("moment");
 const WebSocket = require('ws');
 const wss = new WebSocket.Server({ port: 8080 });
+const push = require("../push")();
 
 module.exports = function () {
     // Fetch all registered device tokens
@@ -60,6 +61,7 @@ module.exports = function () {
         request(options, function (error, response, body) {
             if (error) return console.error('Failed: %s', error.message);
             const obj = addTransactionToDatabase(body)
+            push.pushNotification(0.60);
             //if(isOpened)
             connected.forEach(c => {
                 try {

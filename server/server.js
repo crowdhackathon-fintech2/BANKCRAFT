@@ -1,5 +1,4 @@
 const api = require('./lib/api');
-const bank = require('./lib/controllers/bank')();
 const schedule = require('node-schedule');
 const push = require('./lib/push')();
 const simplifyCtrl = require('./lib/controllers/simplify')();
@@ -7,7 +6,7 @@ const simplifyCtrl = require('./lib/controllers/simplify')();
 api.initialize();
 // uphold.tade();
 
-bank.generateHistory();
+// bank.generateHistory();
 
 /*
 

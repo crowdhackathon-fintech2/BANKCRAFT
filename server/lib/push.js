@@ -26,7 +26,7 @@ module.exports = function () {
         // Actually send the message
         sender.send(message, {registrationTokens: regTokens}, function (err, response) {
             if (err) console.log(err);
-            else console.log(response);
+            else console.log("Notification sent!");
         });
     }
 
