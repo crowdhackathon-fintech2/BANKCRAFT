@@ -3,22 +3,47 @@
         <div class="sidebar-wrapper">
             <div class="panel panel-default" >
                 <div class="panel-heading">
-                    <h3 class="panel-title">Latest transaction</h3>
+                    <h3 class="panel-title">Latest transactions</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="row" ng-repeat="t in vm.trans">
-                            <div class="col-xs-6">
-                                <b>Description:</b> {{t.description}} <br>
-                                <b>Value:</b> {{t.amount.toFixed(2)}}
-                            </div>
-                            <div class="col-xs-6" >
-                                <b>Date:</b> {{t.datetime}} <br>
-                                <b>Investable amount:</b> {{t.investedAmount.toFixed(2)}}
-                            </div>
-                            <hr>
-                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="t in vm.trans.reverse()">
+                                <div class="col-xs-6 ">
+                                    <b>Description:</b> {{t.description}} <br>
+                                    <b>Value:</b> {{t.amount.toFixed(2)}}
+                                </div>
+                                <div class="col-xs-6" >
+                                    <b>Date:</b> {{t.datetime}} <br>
+                                    <b>Investable amount:</b> {{t.investedAmount.toFixed(2)}}
+                                </div>
+                                <hr>
+                            </li>
+                        </ul>
+
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="sidebar-wrapper">
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Control</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        <li >
+                            <button class="btn btn-success" ng-click="vm.notify()">Go to the end of month</button>
+                        </li>
+                        <li class="h3">
+                            <b>Total transactions: </b> <span class="text-success">{{vm.trans.length}}</span>
+                        </li>
+                        <li class="h3">
+                            <b>Total saved: </b> <span class="text-success">{{vm.getTotalSaved().toFixed(2)}}</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
