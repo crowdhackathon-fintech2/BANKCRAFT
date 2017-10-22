@@ -41,8 +41,16 @@ public class EntryActivity extends BaseActivity {
         nbgCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ServiceCalls.getUserTransactions("User1");
                 getAppLoader().showLoader(EntryActivity.this, R.drawable.nbg_icon);
+                if (handler != null) {
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            ServiceCalls.getUserTransactions("User1");
+                            handler.removeCallbacks(this);
+                        }
+                    }, 4000L);
+                }
 
             }
         });
@@ -88,7 +96,7 @@ public class EntryActivity extends BaseActivity {
                         @Override
                         public void run() {
                             getAppLoader().dismissLoader(EntryActivity.this);
-                            startActivity(new Intent(EntryActivity.this, TransactionsActivity.class));
+                            //startActivity(new Intent(EntryActivity.this, TransactionsActivity.class));
                             handler.removeCallbacks(this);
                         }
                     }, 4000L);
