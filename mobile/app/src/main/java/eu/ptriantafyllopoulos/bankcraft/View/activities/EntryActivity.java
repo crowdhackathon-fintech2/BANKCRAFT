@@ -152,7 +152,7 @@ public class EntryActivity extends BaseActivity {
     public void onSendTokenResponse(SendTokenResponseEvent responseEvent) {
 //        getAppLoader().dismissLoader(this);
         if (responseEvent.getSendTokenDao() != null) {
-            Toast.makeText(this, "CALL Success", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "CALL Success", Toast.LENGTH_LONG).show();
 
         } else {
             Toast.makeText(this, "CALL FAILED", Toast.LENGTH_LONG).show();

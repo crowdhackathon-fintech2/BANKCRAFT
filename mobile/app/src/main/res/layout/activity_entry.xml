@@ -6,125 +6,163 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="eu.ptriantafyllopoulos.bankcraft.View.activities.EntryActivity">
 
-
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/card1"
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardCornerRadius="6dp">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/img_1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/nbg_icon"/>
-            <TextView
-                android:textSize="20sp"
-                android:layout_marginLeft="20dp"
-                android:layout_centerInParent="true"
+        <android.support.v7.widget.CardView
+            android:id="@+id/card1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="6dp">
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NBG GROUP"
-                android:layout_toRightOf="@+id/img_1"/>
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/nbg_icon"/>
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NBG GROUP"
+                    android:layout_toRightOf="@+id/img_1"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card2"
-        android:layout_below="@+id/card1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardCornerRadius="6dp">
+        <android.support.v7.widget.CardView
+            android:id="@+id/card2"
+            android:layout_below="@+id/card1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="6dp">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/img_2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/alpha_logo"/>
-            <TextView
-                android:textSize="20sp"
-                android:layout_marginLeft="20dp"
-                android:layout_centerInParent="true"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Alpha Bank"
-                android:layout_toRightOf="@+id/img_2"/>
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/alpha_logo"/>
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alpha Bank"
+                    android:layout_toRightOf="@+id/img_2"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card3"
-        android:layout_below="@+id/card2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardCornerRadius="6dp">
+        <android.support.v7.widget.CardView
+            android:id="@+id/card3"
+            android:layout_below="@+id/card2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="6dp">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/img_3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/eurobank_logo"/>
-            <TextView
-                android:textSize="20sp"
-                android:layout_marginLeft="20dp"
-                android:layout_centerInParent="true"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="EuroBank"
-                android:layout_toRightOf="@+id/img_3"/>
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/eurobank_logo"/>
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Eurobank"
+                    android:layout_toRightOf="@+id/img_3"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card4"
-        android:layout_below="@id/card3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardCornerRadius="6dp">
+        <android.support.v7.widget.CardView
+            android:id="@+id/card4"
+            android:layout_below="@id/card3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="6dp">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/img_4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/piraeus_logo"/>
-            <TextView
-                android:textSize="20sp"
-                android:layout_marginLeft="20dp"
-                android:layout_centerInParent="true"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Winbank"
-                android:layout_toRightOf="@+id/img_4"/>
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/piraeus_logo"/>
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Winbank"
+                    android:layout_toRightOf="@+id/img_4"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/card5"
+            android:layout_below="@id/card4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="6dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/img_5"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/logo_masterpass"/>
+                <TextView
+                    android:textSize="20sp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MasterPass"
+                    android:layout_toRightOf="@+id/img_5"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+</ScrollView>
+
+
 
 </RelativeLayout>
