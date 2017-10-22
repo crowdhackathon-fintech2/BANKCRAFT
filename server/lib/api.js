@@ -1,6 +1,7 @@
 var express = require('express');
 var config = require('../config');
 var path = require('path');
+var bodyParser = require('body-parser');
 
 exports.initialize = function () {
     // Initialize API
@@ -8,7 +9,6 @@ exports.initialize = function () {
 
     // Setup API routes
     setupRoutes(api);
-
     // Either use the runtime port or fallback to config
     var port = process.env.PORT || config.api.port;
 
@@ -21,6 +21,9 @@ exports.initialize = function () {
 function setupRoutes(api) {
     // Index endpoint
     // api.get('/', require('./routes/index'));
+    api.use(bodyParser.urlencoded({ extended: false }));
+    api.use(bodyParser.json());
+
     api.use("/", express.static(path.join(__dirname + '/../views/')));
     api.get('/', function(req, res) {
         res.sendFile(path.join(__dirname + '/../views/index.html'));

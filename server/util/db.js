@@ -38,6 +38,9 @@ module.exports = function(){
                 data.transactions = [];
             }
             data.transactions.push(obj)
+        },
+        setToken: function(token){
+            data.token = token;
         }
     };
 };

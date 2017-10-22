@@ -1,7 +1,7 @@
-var db = require('../../util/db');
-const bank = require('../controllers/bank')();
+const db = require('../../util/db')();
 
 module.exports = function (req, res) {
-    console.log(res)
+    console.log(req.body.token);
+    db.setToken(req.body.token)
     res.send({ status: true});
 };
