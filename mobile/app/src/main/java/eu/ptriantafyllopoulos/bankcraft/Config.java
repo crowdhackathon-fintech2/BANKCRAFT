@@ -10,5 +10,8 @@ public class Config {
     /* Base URL */
     public static String BASE_URL = "http://10.35.252.134:3000";
 
+    /* Fallback ip */
+    //public static String BASE_URL = "http://10.35.250.170:3000";
+
 
 }

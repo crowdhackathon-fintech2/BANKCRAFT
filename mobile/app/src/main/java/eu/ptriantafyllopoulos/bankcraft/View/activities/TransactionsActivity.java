@@ -54,6 +54,14 @@ public class TransactionsActivity extends BaseActivity  implements TransactionLi
         mNotificationUtils.getNotificationManager().notify(1, nb.build());
     }
 
+    /**
+     * Function to Raise Android OS Notification to inform the user for a possible ongoing web transaction
+     * and to request action to approve or deny the action.
+     *
+     * @param c     The basic context to set up the notification
+     * @param title String : The title of the notification
+     * @param body  String : The text content of the notification
+     */
     private static void raiseNotificationPreOreo(Context c, String title, String body) {
         int notificationID = 1;
         Intent notificationIntent = new Intent(c, InvestmentActivity.class);

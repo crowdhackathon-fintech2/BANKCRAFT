@@ -68,9 +68,12 @@ public class NotificationUtils extends ContextWrapper {
             return new NotificationCompat.Builder(getApplicationContext(), ANDROID_CHANNEL_ID)
                     .setContentTitle(title)
                     .setContentText(body)
+                    .addAction(R.drawable.ic_check_black_24dp,"APPROVE",pi)
+                    .addAction(R.drawable.ic_close_black_24dp,"DECLINE",pi)
+                    .setVisibility(Notification.VISIBILITY_PUBLIC)
                     .setColor(getColor(R.color.colorGreen))
-                    .setSmallIcon(R.drawable.ic_attach_money_black_24dp).
-                            setContentIntent(pi)
+                    .setSmallIcon(R.drawable.ic_attach_money_black_24dp)
+                    //.setContentIntent(pi)
                     .setAutoCancel(true);
         }
         return null;
